@@ -8,7 +8,7 @@ const svg = document.getElementById('package-svg');
         const bottleTop = 18;
         const bottleBottom = 60;
         
-// Definindo o tamanho das pílulas
+// Criando as pílulas
 function createCircle(cx, cy, className, radius) {
             const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
             circle.setAttribute('cx', cx);
@@ -17,13 +17,12 @@ function createCircle(cx, cy, className, radius) {
             circle.setAttribute('class', className);
             svg.appendChild(circle);}
 
-// Definindo posições aleatórias para as pílulas    
+    
 function generateRandomPosition() {
             const cx = Math.random() * (bottleRight - bottleLeft - 2 * radius) + bottleLeft + radius;
             const cy = Math.random() * (bottleBottom - bottleTop - 2 * radius) + bottleTop + radius;
             return { cx, cy };}
 
-// Criando as pílulas
 function generatePills(className, count) {
             for (let i = 0; i < count; i++) {
                 const { cx, cy } = generateRandomPosition();
@@ -46,56 +45,52 @@ function resetAllButtons() {
                 button.style.backgroundColor = '#3aa6b9'; });}
         
 
-        buttons.forEach(button => {
+buttons.forEach(button => {
             button.addEventListener('click', function() {
-              
-                resetAllButtons();
-        
-                
-                this.classList.add('active');
-                this.style.backgroundColor = '#E76F51'; 
-        
-                hideAllMessages(); 
-                const correspondingMessage = document.getElementById(`text-${this.id}`);
-                if (correspondingMessage) {
-                    correspondingMessage.style.display = 'block'; }});});
-        
+            resetAllButtons();
+            this.classList.add('active');
+            
+ hideAllMessages(); 
+ const correspondingMessage = document.getElementById(`text-${this.id}`);
+     if (correspondingMessage) {correspondingMessage.style.display = 'block'; }});});
 
-function hideAllMessages() {
-            const messages = document.querySelectorAll('.message');
-            messages.forEach(message => message.style.display = 'none');}
-        
-    
-function filterPills(className) {
-            const allPills = document.querySelectorAll('circle');
-            allPills.forEach(circle => circle.classList.add('hidden'));
-        
-            const selectedPills = document.querySelectorAll('.' + className);
-            selectedPills.forEach(circle => circle.classList.remove('hidden'));}
-        
-     
-        document.getElementById('btn-pills1').addEventListener('click', function() {
-            filterPills('pill');
-            hideAllMessages();
-            document.getElementById('text-pills1').style.display = 'block';});
-        
-        document.getElementById('btn-pills2').addEventListener('click', function() {
-            filterPills('pill2');
-            hideAllMessages();
-            document.getElementById('text-pills2').style.display = 'block';});
-        
-        document.getElementById('btn-pills3').addEventListener('click', function() {
-            filterPills('pill3');
-            hideAllMessages();
-            document.getElementById('text-pills3').style.display = 'block'; });
-        
-        document.getElementById('btn-pills4').addEventListener('click', function() {
-            filterPills('pill4');
-            hideAllMessages();
-            document.getElementById('text-pills4').style.display = 'block';});
-        
-        document.getElementById('btn-pills5').addEventListener('click', function() {
-            filterPills('pill5');
-            hideAllMessages();
-            document.getElementById('text-pills5').style.display = 'block'; });
-        
+function hideAllMessages() {const messages = document.querySelectorAll('.message');
+                        messages.forEach(message => message.style.display = 'none');}
+                    
+function filterPills(className) {const allPills = document.querySelectorAll('circle');
+        allPills.forEach(circle => circle.classList.add('hidden'));
+                    
+const selectedPills = document.querySelectorAll('.' + className);
+                        selectedPills.forEach(circle => circle.classList.remove('hidden')); }
+                    
+    function showMessage(messageId) {hideAllMessages();
+                        document.getElementById(messageId).style.display = 'block';}
+                    
+// Botões individuais
+ document.getElementById('btn-pills1').addEventListener('click', function() {filterPills('pill');
+        showMessage('text-pills1');
+        this.style.backgroundColor = "#FF9EAA"});
+                    
+ document.getElementById('btn-pills2').addEventListener('click', function() {filterPills('pill2');
+        showMessage('text-pills2');
+        this.style.backgroundColor = "#6499E9"});
+                    
+ document.getElementById('btn-pills3').addEventListener('click', function() {filterPills('pill3');
+         showMessage('text-pills3');
+         this.style.backgroundColor ="#5DEBD7"});
+                    
+ document.getElementById('btn-pills4').addEventListener('click', function() {filterPills('pill4');
+         showMessage('text-pills4');
+         this.style.backgroundColor = "#A2CA71"});
+                    
+document.getElementById('btn-pills5').addEventListener('click', function() {filterPills('pill5');
+         showMessage('text-pills5');
+        this.style.backgroundColor = "#F6E96B"});
+                    
+document.getElementById('btn-all').addEventListener('click', function() {const allPills = document.querySelectorAll('circle');
+        allPills.forEach(circle => circle.classList.remove('hidden'));
+        hideAllMessages();
+        const messageElement = document.getElementById('filter-message');
+        messageElement.textContent = "Mostrando todas as pílulas.";
+        messageElement.style.display = 'block'; 
+        this.style.backgroundColor = "#E76F51"});
