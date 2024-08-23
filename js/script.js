@@ -91,6 +91,6 @@ document.getElementById('btn-all').addEventListener('click', function() {const a
         allPills.forEach(circle => circle.classList.remove('hidden'));
         hideAllMessages();
         const messageElement = document.getElementById('filter-message');
-        messageElement.textContent = "Mostrando todas as pílulas.";
+        messageElement.textContent = "Mostrando todas os medicamentos.";
         messageElement.style.display = 'block'; 
         this.style.backgroundColor = "#E76F51"});
