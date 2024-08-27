@@ -21,26 +21,22 @@ body {
     display: none;
 }
 
-h1 {
-	font-weight:900;
+h1 {font-weight:900;
     font-size: 28px;
     margin-top: 20;
     margin-right: 20px;
   }
 
-  h3 {
-	font-weight:700;
+  h3 {font-weight:700;
     font-size: 18px;
     margin-top: 20;
-    margin-right: 20px;
-  }
+    margin-right: 20px;}
+
 .header {
 	width: 100%;
 	text-align: center;
 	background-color: #36c2ce;
-	color: white;
-}
-
+	color: white;}
 
 button {
 	font-size: 18px;
@@ -50,9 +46,9 @@ button {
 	border: none;
 	padding: 13px;
 	border-radius: 10px;
-    flex: 1 1 150px;
-    box-sizing: border-box; 
-    transition: background-color 0.3s, color 0.3s; }
+    	flex: 1 1 150px;
+    	box-sizing: border-box; 
+    	transition: background-color 0.3s, color 0.3s; }
 
 
 .message {
