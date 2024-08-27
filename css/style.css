@@ -61,13 +61,8 @@ button {
 	border-radius: 10px;
     flex: 1 1 150px;
     box-sizing: border-box; 
-    transition: background-color 0.3s, color 0.3s; 
-	
-}
+    transition: background-color 0.3s, color 0.3s; }
 
-.filter-btn.active {
-    color: #ffffff; 
-}
 
 .message {
     display: none;
