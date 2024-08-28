@@ -92,4 +92,5 @@ document.getElementById('btn-all').addEventListener('click', function() {const a
         hideAllMessages();
         const messageElement = document.getElementById('filter-message');
         messageElement.textContent = "Mostrando todos os medicamentos.";
+        messageElement.style.display = 'block';
         this.style.backgroundColor = "#E76F51"});
